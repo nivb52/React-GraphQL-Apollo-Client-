@@ -1,25 +1,41 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+
+import ApolloClient from "apollo-boost";
+import  gql  from "graphql-tag";
+import { ApolloProvider, ApolloConsumer  } from "react-apollo";
+
+const client = new ApolloClient ({
+  uri: 'https://api.spacex.land/graphql/'
+});
 
 function App() {
   return (
+    <ApolloProvider client = {client}> 
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        on air
       </header>
     </div>
+    <ApolloConsumer>
+      {
+        client => {
+          client.query ({
+            query: gql`
+             query GetLaunch
+            {
+              launchesPast(limit: 10) {
+                mission_name
+                launch_date_local
+              }
+            }
+           `
+          }).then (res => console.log(res))
+          return null
+        }
+      }
+    </ApolloConsumer>
+  </ApolloProvider>
   );
 }
 
