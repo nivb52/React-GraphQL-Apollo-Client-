@@ -2,9 +2,14 @@
     --danger-color:#721c24;
     --danger-background: #f5c6cb;
     --danger-border: #f8d7da;
+
     --warning-color: #856404;
     --warning-background: #fff3cd;
     --warning-border: #ffeeba;
+
+    --info-color: #fefefe ;
+    --info-background: #007bff;
+    --info-border: (0,123,255);
 }
 
 .alert {
@@ -42,4 +47,11 @@
 
 .alert-warning .alert-link {
     color: #533f03;
+}
+
+.alert-info {
+    color: var(--info-color);
+    background-color: var(--info-background);
+    border-color: var(--info-background);
+    filter: drop-shadow(-4px 0px 7px  var(--info-background));
 }

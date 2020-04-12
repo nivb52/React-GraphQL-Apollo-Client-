@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import gql from 'graphql-tag';
 import { useMutation } from '@apollo/react-hooks';
 
-import {renderSavingMessage, renderPostError, renderMsgError} from '../cmps/ui/load-and-error.jsx';
+import {renderSavingMessage, rippleLoader, renderPostError, renderMsgError} from '../cmps/ui/load-and-error.jsx';
 
 
 const addUserMutation = gql`
@@ -33,7 +33,8 @@ const AddUser = () => {
   const handleSubmit = async (ev) => {
     ev.preventDefault();
     const typeCheck = (varible, wanted) => typeof varible === wanted
-    if (!inputs.name || typeCheck(inputs.name, 'String') || !inputs.rocket  || typeCheck(inputs.rocket, 'String')) {
+    if (!inputs.name || typeCheck(inputs.name, 'String') || 
+        !inputs.rocket  || typeCheck(inputs.rocket, 'String')) {
         setShowError(true);
         setTimeout(() => {
             setShowError(false);
@@ -62,19 +63,19 @@ const AddUser = () => {
       onSubmit={async (ev) => handleSubmit(ev)}>
       <label htmlFor="name">
         name:
-        <input onChange={(ev) => changeInput(ev)} type="text" name="name" />
+        <input disabled={loading} onChange={(ev) => changeInput(ev)} type="text" name="name" />
       </label>
       <label htmlFor="rocket">
         rocket name propusal:
-        <input onChange={(ev) => changeInput(ev)} type="text" name="rocket" />
+        <input disabled={loading} onChange={(ev) => changeInput(ev)} type="text" name="rocket" />
       </label>
 
       <label htmlFor="twitter">
         twitter:
-        <input onChange={(ev) => changeInput(ev)} type="text" name="twitter" />
+        <input disabled={loading} onChange={(ev) => changeInput(ev)} type="text" name="twitter" />
       </label>
 
-      <button type="submit"> send</button>
+      <button type="submit"> { loading ? rippleLoader(): 'send' }</button>
      {showError && renderMsgError(' Please provide name and rocket name, only string allowed','warning')}
     </form>
      {loading && renderSavingMessage()}
