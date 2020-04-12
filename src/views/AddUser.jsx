@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import gql from 'graphql-tag';
 import { useMutation } from '@apollo/react-hooks';
 
-import {renderSavingMessage, renderPostError} from '../cmps/ui/load-and-error.jsx';
+import {renderSavingMessage, renderPostError, renderMsgError} from '../cmps/ui/load-and-error.jsx';
 
 
 const addUserMutation = gql`
@@ -17,6 +17,7 @@ const addUserMutation = gql`
 const AddUser = () => {
   const formRef = useRef();
   const [addUser, {loading, error}] = useMutation(addUserMutation);
+    const [showError, setShowError] = useState(false)
 
   const resetFields = () => {
     setInputs({});
@@ -31,7 +32,14 @@ const AddUser = () => {
 
   const handleSubmit = async (ev) => {
     ev.preventDefault();
-    if (!inputs.name || !inputs.rocket) return;
+    const typeCheck = (varible, wanted) => typeof varible === wanted
+    if (!inputs.name || typeCheck(inputs.name, 'String') || !inputs.rocket  || typeCheck(inputs.rocket, 'String')) {
+        setShowError(true);
+        setTimeout(() => {
+            setShowError(false);
+        }, 2800);
+        return
+    } ;
     try {
       await addUser({
         variables: {
@@ -47,7 +55,7 @@ const AddUser = () => {
   }
 
   return (
-      <div className="container">
+      <div className="container middle">
     <form
       className="users"
       ref={formRef}
@@ -67,9 +75,11 @@ const AddUser = () => {
       </label>
 
       <button type="submit"> send</button>
+     {showError && renderMsgError(' Please provide name and rocket name, only string allowed','warning')}
     </form>
      {loading && renderSavingMessage()}
      {error && renderPostError()}
+
      </div>
   );
 };
