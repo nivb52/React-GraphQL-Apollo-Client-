@@ -30,18 +30,25 @@ export const renderSavingMessage = (msg = 'new user') => {
 
 // ERROR
 // role = danger / warning
-export const renderPostError = (msg = 'save the user', role = 'danger') => {
+export const renderPostError = (msg = 'save the user') => {
     return (
-        <div className="alert alert-{role}">
+        <div className="alert alert-danger">
             An error occurred! Unable to {msg}.
         </div>
     );
 };
 
-export const renderFetchError = (role = 'danger') => {
+export const renderFetchError = () => {
     return (
-        <div className="alert alert-{role}">
+        <div className="alert alert-danger">
             Something went wrong 
+        </div>
+    );
+};
+export const renderMsgError = (msg ,role = 'danger') => {
+    return (
+        <div className={"alert alert-" + role}>
+            {msg}
         </div>
     );
 };
