@@ -1,14 +1,13 @@
 import React from 'react';
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
-import { formatUTCDate } from './date.helper';
+import { formatUTCDate, getMinyImage } from '../services/util';
 
-import '../cmps/common/rocket-loader.css';
-import rocketLoader from '../rocket-128px.svg';
+import {rocketLoader, renderFetchError} from '../cmps/ui/load-and-error.jsx';
 
 const GetPastLaunches = gql`
   query GetPastLaunches {
-    launchesPast(limit: 2) {
+    launchesPast(limit: 8) {
       id
       mission_name
       launch_date_local
@@ -36,21 +35,20 @@ const GetPastLaunches = gql`
       }
       ships {
         home_port
-        image
+        # image
       }
     }
   }
 `;
 
 const LaunchesPast = () => {
+
+
   return (
     <Query query={GetPastLaunches}>
       {({ data, loading, error }) => {
-        if (loading)
-          return (
-            <img className="rocket" src={rocketLoader} alt="loader-icon" />
-          );
-        if (error) return <p> Something went wrong </p>;
+        if (loading) return  rocketLoader()
+        if (error)  return renderFetchError()
 
         return (
           <div className="container">
@@ -71,15 +69,14 @@ const LaunchesPast = () => {
                     </span>
 
                     <img
-                      // src = {ships.image}
-                      src={links.flickr_images[0]}
+                    //   src = {ships.image}
+                      src={getMinyImage(links.flickr_images[0])}
                       alt={ships.home_port}
                     />
                   </figure>
                   <h3 className="card-title">{mission_name}</h3>
-                  <span className="card-subtitle">
-                  <span className="card-desc"> with rocket: </span>
-                    {rocket.rocket_name}
+                  <span className="card-desc"> 
+                        {rocket.rocket_name} as rocket
                   </span>
                   {ships.home_port && (
                     <span className="card-desc"> from: {ships.home_port}</span>
