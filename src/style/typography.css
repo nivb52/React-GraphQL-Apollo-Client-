@@ -13,11 +13,11 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: .5rem;
 }
 
-h1, h2, h3, .h1, .h2, .h3, input, a {
+h1, h2, h3, .h1, .h2, .h3, input {
     font-family: 'Alef', 'Arial', sans-serif;
 }
 
-span, div, p , .info, .desc, 
+span, div, p , .info, .desc , a, 
 h4, h5, h6 , .h4, .h5, .h6 , button {
     font-family: 'Montserrat', 'Roboto',  'Helvetica Neue', -apple-system, sans-serif;
 }
@@ -25,4 +25,9 @@ h4, h5, h6 , .h4, .h5, .h6 , button {
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
       monospace;
-  }
+}
+
+  a {
+    font-size: 1rem;
+}
+
