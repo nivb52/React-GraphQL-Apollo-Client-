@@ -25,6 +25,7 @@ ul, li {
 
 .container.middle {
   align-items: center;
+  grid-template-columns: unset;
 }
 
 .photo-grid {

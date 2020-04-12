@@ -34,5 +34,7 @@ nav ul{
 nav a{
   color: var(--light);
   text-decoration: none;
-  margin-inline-end: 2rem
+  margin-inline-end: 2rem;
+  font-size: 1.1rem;
+  letter-spacing: -0.42px;
 }
