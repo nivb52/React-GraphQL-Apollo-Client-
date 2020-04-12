@@ -1,4 +1,5 @@
 export const formatUTCDate = (d) => {
+  if (!d) return
   return d
     .split('T') // split on the "T"   -> ["2015-11-09", "10:..."]
     .shift() // get the first part -> "2015-11-09"
