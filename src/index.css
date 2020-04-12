@@ -8,10 +8,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+
+@import './style/form.css';
+@import './style/typography.css';
 
 .container {
   padding-top: 20px;
@@ -38,19 +37,19 @@ code {
   flex-direction: column;
 }
 
-.card h3.card-title{
+.card h3.card-title {
   margin: 0;
   margin-top: 5px;
   text-align: center;
 }
 
-.card span.card-subtitle{
+.card span.card-subtitle {
   font-size: 1.2rem;
   font-weight: 500;
   text-align: center;
 }
-.card span.card-desc{
-  color: #bdbdbd;
+.card span.card-desc {
+  color: #bebebe;
   text-align: center;
   font-size: 0.9rem;
   margin-inline-end: 5px;
@@ -59,12 +58,37 @@ code {
 .date {
   position: absolute;
   z-index: 5;
-  background: #444444ff;
-  color: #fff;
+  background: #444444;
+  padding: 4px 8px;
+  color: #fefefe;
+}
+
+@keyframes fadeBlur {
+  from {
+    filter: blur(18px) opacity(0.5);
+  }
+  to {
+    filter: blur(0) opacity(1);
+  }
+}
+@keyframes brightBlur {
+  from {
+    filter: blur(18px)  brightness(7.5);
+  }
+  to {
+    filter: blur(0)  brightness(1);
+  }
 }
 figure.card-photo {
+  transition: brightBlur 400ms linear 50ms;
 }
+
 figure.card-photo img {
   width: 300px;
   height: 300px;
 }
+
+figure.card-photo img:hover {
+  filter: saturate(0.5);
+}
+
