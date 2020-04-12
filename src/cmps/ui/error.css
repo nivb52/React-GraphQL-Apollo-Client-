@@ -1,9 +1,20 @@
 .alert {
+    --danger-color:#721c24;
+    --danger-background: #f5c6cb;
+    --danger-border: #f8d7da;
+    --warning-color: #856404;
+    --warning-background: #fff3cd;
+    --warning-border: #ffeeba;
+}
+
+.alert {
     position: relative;
     padding: .75rem 1.25rem;
     margin-bottom: 1rem;
     border: 1px solid transparent;
     border-radius: .25rem;
+    width: 90%;
+    transition: all 3s ease-in-out;
 }
 
 .alert-link {
@@ -12,9 +23,9 @@
 
 /* danger */
 .alert-danger {
-    color: #721c24;
-    background-color: #f8d7da;
-    border-color: #f5c6cb;
+    color: var(--danger-color);
+    background-color: var(--danger-background);
+    border-color: var(--danger-border);
 }
 
 
@@ -24,9 +35,9 @@
 
 /* warning */
 .alert-warning {
-    color: #856404;
-    background-color: #fff3cd;
-    border-color: #ffeeba;
+    color: var(--warning-color);
+    background-color: var(--warning-background);
+    border-color: var(--warning-border);
 }
 
 .alert-warning .alert-link {
