@@ -1,0 +1,8 @@
+.--lunches-details .links a, 
+.--lunches-details .links > span{
+    margin-inline-end: 1.5rem;
+}
+.--lunches-details .links a{
+    color: var(--dark);
+    padding: 0 10px;
+}

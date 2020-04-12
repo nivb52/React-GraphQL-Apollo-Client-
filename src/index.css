@@ -14,6 +14,7 @@ ul, li {
 @import './style/vars.css';
 @import './style/form.css';
 @import './style/typography.css';
+@import './style/helpers.css';
 
 .container {
   padding-top: 20px;
@@ -38,7 +39,6 @@ ul, li {
 
 /* CARDS */
 .card {
-  cursor: pointer;
   justify-content: center;
   position: relative;
   display: flex;

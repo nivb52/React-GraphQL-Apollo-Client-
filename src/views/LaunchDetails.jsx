@@ -7,6 +7,7 @@ import gql from 'graphql-tag';
 // self
 import { rocketLoader, renderFetchError } from '../cmps/ui/load-and-error.jsx';
 import { formatUTCDate, getMinyImage } from '../services/util';
+import './launch-details.css';
 
 const GET_LAUNCH = gql`
   query GetLaunch($id: ID!) {
@@ -57,8 +58,10 @@ const LaunchDetails = () => {
   return (
     <div className="container middle">
       <div className="card --lunches-details">
-        <h1 className="card-title">mission: {launch.mission_name}</h1>
-        <span className="card-desc">{formatUTCDate(launch.launch_date_local)} - launch details</span>
+        <h1 className="card-title">mission: {launch.mission_name}
+        <span className="card-desc">  {formatUTCDate(launch.launch_date_local)}</span>
+        </h1>
+        <h2 className="capitalized"> Launch Details</h2>
         <p>{launch.details}</p>
         <p>The rocket {launch.rocket.rocket_name} 
             {orbit ? ' fly on the orbit '+ orbit : '' },
@@ -70,9 +73,9 @@ const LaunchDetails = () => {
             and currently it is {launch.ships.active ? ' active': ' not active'}
             .
         </p>
-        <div className="container gallery">
-            {launch.links.flickr_images && launch.links.flickr_images.map((img) => (
-            <figure className="card-photo">
+        <div className="photo-grid">
+            {launch.links.flickr_images && launch.links.flickr_images.map((img, i) => (
+            <figure className="card-photo" key={i}>
                 <img
                 src={getMinyImage(img)}
                 alt={launch.mission_name + 'on luanch day'}
@@ -80,6 +83,8 @@ const LaunchDetails = () => {
             </figure>
             ))}
         </div>
+        <div className="links">
+        <span>more info:  </span>
         <a
           target="_blank"
           rel="noopener noreferrer"
@@ -92,22 +97,24 @@ const LaunchDetails = () => {
           rel="noopener noreferrer"
           href={launch.links.reddit_media}
         >
-          reddit_media
+          reddit 
         </a>
         <a
           target="_blank"
           rel="noopener noreferrer"
           href={launch.links.video_link}
         >
-          video_link
+          video 
         </a>
         <a
           target="_blank"
           rel="noopener noreferrer"
           href={launch.links.article_link}
         >
-          article_link
+          article/s
         </a>
+        </div>
+
       </div>
     </div>
   );
