@@ -1,9 +1,12 @@
 import React from 'react';
+import { Link} from 'react-router-dom';
+// graphql
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
-import { formatUTCDate, getMinyImage } from '../services/util';
 
+// self
 import {rocketLoader, renderFetchError} from '../cmps/ui/load-and-error.jsx';
+import { formatUTCDate, getMinyImage } from '../services/util';
 
 const GetPastLaunches = gql`
   query GetPastLaunches {
@@ -62,6 +65,7 @@ const LaunchesPast = () => {
                 id,
               }) => (
                 <div className="card --lunches" key={id}>
+                  <Link to={"/launch/"+id} >
                   <figure className="card-photo">
                     <span className="date">
                       {' '}
@@ -74,6 +78,7 @@ const LaunchesPast = () => {
                       alt={ships.home_port}
                     />
                   </figure>
+                  </Link>
                   <h3 className="card-title">{mission_name}</h3>
                   <span className="card-desc"> 
                         {rocket.rocket_name} as rocket
