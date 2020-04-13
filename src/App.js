@@ -34,7 +34,7 @@ function App() {
         </div>
         <div className="App-container">
           <Switch>
-            <Route exact path="/" component={LaunchesPast} />
+            <Route exact path={process.env.PUBLIC_URL + '/'} component={LaunchesPast} />
             <Route path="/launch/:id" component={LaunchDetails} />
             <Route path="/add-user" component={AddUser} />
           </Switch>
