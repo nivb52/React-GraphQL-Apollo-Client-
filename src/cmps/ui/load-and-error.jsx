@@ -30,10 +30,10 @@ export const renderSavingMessage = (msg = 'new user') => {
 
 // ERROR
 // role = danger / warning
-export const renderPostError = (msg = 'save the user') => {
+export const renderPostError = (msg = 'Unable to save the user') => {
     return (
         <div className="alert alert-danger">
-            An error occurred! Unable to {msg}.
+            An error occurred! {msg}.
         </div>
     );
 };
