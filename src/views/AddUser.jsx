@@ -1,23 +1,16 @@
 import React, { useState, useRef } from 'react';
-import gql from 'graphql-tag';
 import { useMutation } from '@apollo/react-hooks';
+import addUserMutation  from "../graphql/mutations/addUser";
 
+
+// UI
 import {renderSavingMessage, rippleLoader, renderPostError, renderMsgError} from '../cmps/ui/load-and-error.jsx';
-
-
-const addUserMutation = gql`
-  mutation addUser($objects: [users_insert_input!]!) {
-    insert_users(objects: $objects) {
-      affected_rows
-    }
-  }
-`;
 
 
 const AddUser = () => {
   const formRef = useRef();
   const [addUser, {loading, error}] = useMutation(addUserMutation);
-    const [showError, setShowError] = useState(false)
+  const [showError, setShowError] = useState(false)
 
   const resetFields = () => {
     setInputs({});
