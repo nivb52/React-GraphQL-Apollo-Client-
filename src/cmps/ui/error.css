@@ -19,7 +19,7 @@
     border: 1px solid transparent;
     border-radius: .25rem;
     width: 90%;
-    transition: all 3s ease-in-out;
+    transition: border 3s ease-in-out , width 300ms ease-in-out ;
 }
 
 .alert-link {
