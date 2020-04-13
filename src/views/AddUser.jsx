@@ -1,39 +1,42 @@
 import React, { useState, useRef } from 'react';
 import { useMutation } from '@apollo/react-hooks';
 import addUserMutation  from "../graphql/mutations/addUser";
-
-
+//self
+import Users from "../cmps/Users";
 // UI
 import {renderSavingMessage, rippleLoader, renderPostError, renderMsgError} from '../cmps/ui/load-and-error.jsx';
 
 
 const AddUser = () => {
-  const formRef = useRef();
-  const [addUser, {loading, error}] = useMutation(addUserMutation);
-  const [showError, setShowError] = useState(false)
+    const formRef = useRef();
+    const [addUser, {loading, error}] = useMutation(addUserMutation);
+    const [showError, setShowError] = useState(false)
 
-  const resetFields = () => {
-    setInputs({});
-    formRef.current.reset();
+    const resetFields = () => {
+      setInputs({});
+      formRef.current.reset();
   };
 
-  const [inputs, setInputs] = useState({});
 
-  const changeInput = ({ target: { name, value } }) => {
+const [inputs, setInputs] = useState({});
+
+const changeInput = ({ target: { name, value } }) => {
     setInputs({ ...inputs, [name]: value });
   };
 
-  const handleSubmit = async (ev) => {
+const handleSubmit = async (ev) => {
     ev.preventDefault();
     const typeCheck = (varible, wanted) => typeof varible === wanted
     if (!inputs.name || typeCheck(inputs.name, 'String') || 
         !inputs.rocket  || typeCheck(inputs.rocket, 'String')) {
         setShowError(true);
+        // create kind of Toast for example
         setTimeout(() => {
             setShowError(false);
         }, 2800);
         return
     } ;
+
     try {
       await addUser({
         variables: {
@@ -43,13 +46,15 @@ const AddUser = () => {
         },
       });
       resetFields();
+     
     } catch (error) {
         console.log(error);
     }
   }
 
+  /// UI :
   return (
-      <div className="container middle">
+      <div className="container wide">
     <form
       className="users"
       ref={formRef}
@@ -73,7 +78,9 @@ const AddUser = () => {
     </form>
      {loading && renderSavingMessage()}
      {error && renderPostError()}
-
+      <div>
+        <Users/>
+      </div>
      </div>
   );
 };
