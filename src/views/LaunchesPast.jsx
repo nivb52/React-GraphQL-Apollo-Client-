@@ -28,7 +28,7 @@ const LaunchesPast = () => {
                 id,
               }) => (
                 <div className="card --lunches" key={id}>
-                  <Link to={"/launch/"+id} >
+                  <Link to={process.env.PUBLIC_URL +"/launch/"+id} >
                   <figure className="card-photo">
                     <span className="date">
                       {' '}
