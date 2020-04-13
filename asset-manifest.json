@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/React-GraphQL-Apollo-Client-/static/css/main.5dab37bb.chunk.css",
-    "main.js": "/React-GraphQL-Apollo-Client-/static/js/main.92ce7134.chunk.js",
-    "main.js.map": "/React-GraphQL-Apollo-Client-/static/js/main.92ce7134.chunk.js.map",
+    "main.js": "/React-GraphQL-Apollo-Client-/static/js/main.2ba3d851.chunk.js",
+    "main.js.map": "/React-GraphQL-Apollo-Client-/static/js/main.2ba3d851.chunk.js.map",
     "runtime-main.js": "/React-GraphQL-Apollo-Client-/static/js/runtime-main.4d9b5583.js",
     "runtime-main.js.map": "/React-GraphQL-Apollo-Client-/static/js/runtime-main.4d9b5583.js.map",
     "static/js/2.e06aa43c.chunk.js": "/React-GraphQL-Apollo-Client-/static/js/2.e06aa43c.chunk.js",
     "static/js/2.e06aa43c.chunk.js.map": "/React-GraphQL-Apollo-Client-/static/js/2.e06aa43c.chunk.js.map",
     "index.html": "/React-GraphQL-Apollo-Client-/index.html",
-    "precache-manifest.d5482eb6d89ac85abf75a1eb2fc3cb4e.js": "/React-GraphQL-Apollo-Client-/precache-manifest.d5482eb6d89ac85abf75a1eb2fc3cb4e.js",
+    "precache-manifest.8bd6e4c12ac01ab034a9ff3beab578d0.js": "/React-GraphQL-Apollo-Client-/precache-manifest.8bd6e4c12ac01ab034a9ff3beab578d0.js",
     "service-worker.js": "/React-GraphQL-Apollo-Client-/service-worker.js",
     "static/css/main.5dab37bb.chunk.css.map": "/React-GraphQL-Apollo-Client-/static/css/main.5dab37bb.chunk.css.map",
     "static/js/2.e06aa43c.chunk.js.LICENSE.txt": "/React-GraphQL-Apollo-Client-/static/js/2.e06aa43c.chunk.js.LICENSE.txt",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.4d9b5583.js",
     "static/js/2.e06aa43c.chunk.js",
     "static/css/main.5dab37bb.chunk.css",
-    "static/js/main.92ce7134.chunk.js"
+    "static/js/main.2ba3d851.chunk.js"
   ]
 }
