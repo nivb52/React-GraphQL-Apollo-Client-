@@ -11,10 +11,10 @@ ul, li {
   list-style: none;
 }
 
-@import './style/vars.css';
-@import './style/form.css';
-@import './style/typography.css';
-@import './style/helpers.css';
+@import './vars.css';
+@import './form.css';
+@import './typography.css';
+@import './helpers.css';
 
 .container {
   padding-top: 20px;
@@ -29,6 +29,9 @@ ul, li {
   grid-template-columns: unset;
 }
 
+.container.wide {
+  grid-template-columns: repeat(auto-fill, 450px);
+}
 .photo-grid {
   margin-top: 30px;
   display: grid;
