@@ -22,21 +22,32 @@ function App() {
             <nav>
               <ul>
                 <li>
-                  <Link to="/">Home</Link>
+                  <Link to={process.env.PUBLIC_URL + '/'}>Home</Link>
                 </li>
                 <li>
-                  <Link to="/add-user">Add User</Link>
+                  <Link to={process.env.PUBLIC_URL + '/add-user'}>
+                    Add User
+                  </Link>
                 </li>
               </ul>
             </nav>
-
           </header>
         </div>
         <div className="App-container">
           <Switch>
-            <Route exact path={process.env.PUBLIC_URL + '/'} component={LaunchesPast} />
-            <Route path="/launch/:id" component={LaunchDetails} />
-            <Route path="/add-user" component={AddUser} />
+            <Route
+              exact
+              path={process.env.PUBLIC_URL + '/'}
+              component={LaunchesPast}
+            />
+            <Route
+              path={process.env.PUBLIC_URL + '/launch/:id'}
+              component={LaunchDetails}
+            />
+            <Route
+              path={process.env.PUBLIC_URL + '/add-user'}
+              component={AddUser}
+            />
           </Switch>
         </div>
       </Router>
