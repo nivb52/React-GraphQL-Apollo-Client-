@@ -5,7 +5,7 @@ import { Query } from 'react-apollo';
 import getPastLaunches from "../graphql/queries/getPastLaunches";
 // self
 import {rocketLoader, renderFetchError} from '../cmps/ui/load-and-error.jsx';
-import { formatUTCDate, getMinyImage } from '../services/util';
+import { formatUTCDate, getImage } from '../services/util';
 
 
 const LaunchesPast = () => {
@@ -36,8 +36,8 @@ const LaunchesPast = () => {
                     </span>
 
                     <img
-                    //   src = {ships.image}
-                      src={getMinyImage(links.flickr_images[0])}
+                    //   src = {}
+                      src={getImage( links.flickr_images, ships.image)}
                       alt={ships.home_port}
                     />
                   </figure>

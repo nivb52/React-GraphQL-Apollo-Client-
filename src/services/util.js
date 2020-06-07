@@ -12,3 +12,9 @@ export const formatUTCDate = (d) => {
 export const getMinyImage = (url) => {
   return url.substring(0, url.search('.jpg') - 1) + 'c.jpg';
 };
+
+
+// change Image size
+export const getImage = (urlFromArray, url) => {
+  return urlFromArray.length > 0 ? getMinyImage(urlFromArray[0]) : getMinyImage(url);
+};
