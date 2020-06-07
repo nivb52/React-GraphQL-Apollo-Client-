@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "caf4f7922339a8a201df9c3bdb4e89bb",
+    "revision": "0a81efd5b27e843eb932cecb4cac9520",
     "url": "/React-GraphQL-Apollo-Client-/index.html"
   },
   {
-    "revision": "99194b452bb42adeff4c",
-    "url": "/React-GraphQL-Apollo-Client-/static/css/main.bae97161.chunk.css"
+    "revision": "4354d98da8499d68bc74",
+    "url": "/React-GraphQL-Apollo-Client-/static/css/main.c63e9cf5.chunk.css"
   },
   {
     "revision": "ed661db9ff2db7d3e902",
@@ -16,7 +16,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/React-GraphQL-Apollo-Client-/static/js/2.e06aa43c.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "99194b452bb42adeff4c",
+    "revision": "4354d98da8499d68bc74",
     "url": "/React-GraphQL-Apollo-Client-/static/js/main.5a902216.chunk.js"
   },
   {
