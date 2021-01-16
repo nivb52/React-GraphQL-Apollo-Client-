@@ -1,5 +1,5 @@
 export const formatUTCDate = (d) => {
-  if (!d) return
+  if (!d) return;
   return d
     .split('T') // split on the "T"   -> ["2015-11-09", "10:..."]
     .shift() // get the first part -> "2015-11-09"
@@ -10,11 +10,12 @@ export const formatUTCDate = (d) => {
 
 // change flicker image size
 export const getMinyImage = (url) => {
-  return url.substring(0, url.search('.jpg') - 1) + 'c.jpg';
+  return url && url.substring(0, url.search('.jpg') - 1) + 'c.jpg';
 };
 
-
 // change Image size
-export const getImage = (urlFromArray, url) => {
-  return urlFromArray.length > 0 ? getMinyImage(urlFromArray[0]) : getMinyImage(url);
+export const getImage = (urlFromArray = [], url) => {
+  return urlFromArray.length > 0
+    ? getMinyImage(urlFromArray[0])
+    : getMinyImage(url);
 };
